@@ -9,4 +9,7 @@ function sendMessages(){
    var ss1 = SpreadsheetApp.openById("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX").getSheetByName("tosend").activate(); //Add your own Google Sheet in openById function. 
    var lr = ss1.getLastRow(); 
    Logger.log(lr);
+   
+   var quotaLeft = MailApp.getRemainingDailyQuota(); // to check the daily quota.
+   Logger.log(quotaLeft);
 }   
