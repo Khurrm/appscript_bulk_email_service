@@ -12,4 +12,27 @@ function sendMessages(){
    
    var quotaLeft = MailApp.getRemainingDailyQuota(); // to check the daily quota.
    Logger.log(quotaLeft);
+   
+   
+   for (var i = 2; i <=lr; i++){
+   var interim = ss1.getRange(i,5).getValue(); 
+   Logger.log(interim);
+   if(interim != "done")
+   
+   {
+   var candidate = 
+      {
+        assetvalue: ss1.getRange(i,1).getValue(),
+        first_name: ss1.getRange(i,2).getValue(),
+        last_name : ss1.getRange(i,3).getValue(),
+        currentemail: ss1.getRange(i,4).getValue(),
+        model: ss1.getRange(i,5).getValue(),
+        serialnumber: ss1.getRange(i,6).getValue()
+                
+      };
+   
+
+      
+    }
+    }  
 }   
