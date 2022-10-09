@@ -35,7 +35,12 @@ function sendMessages(){
   //   var temple = HtmlService.createTemplateFromFile('26Nov');
    temple.candidate = candidate; 
    var message = temple.evaluate().getContent();
-   
+   var currentemail = ss1.getRange(i,4).getValue();   
+   Logger.log(currentemail);
+  // var subjectLine = "Hi " + candidate.first_name + "- Please update your XXXXXXX";
+    var subjectLine = "Hi " + candidate.first_name + " - you are XXXXXX";
+    var messageBody = "Hi " + candidate.first_name;
+
       
     }
     }  
