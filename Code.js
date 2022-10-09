@@ -30,8 +30,12 @@ function sendMessages(){
         serialnumber: ss1.getRange(i,6).getValue()
                 
       };
+   // var temple = HtmlService.createTemplateFromFile('htmlandroidsend');
+   var temple = HtmlService.createTemplateFromFile('XXXSend.html'); //mention the name of the file as in Appscript
+  //   var temple = HtmlService.createTemplateFromFile('26Nov');
+   temple.candidate = candidate; 
+   var message = temple.evaluate().getContent();
    
-
       
     }
     }  
