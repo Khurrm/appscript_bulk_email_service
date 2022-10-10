@@ -43,7 +43,7 @@ function sendMessages(){
    
    SpreadsheetApp.flush();
    //MailApp.sendEmail({to:currentemail,subject:subjectLine,body:messageBody,htmlBody:message}); 
-   
+   //GmailApp.sendEmail(currentemail, subjectLine,messageBody,{'from':aliases[4], name:"XXXX Team Message",htmlBody:message,noReply:true});
       
     }
     }  
