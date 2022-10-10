@@ -32,15 +32,18 @@ function sendMessages(){
       };
    // var temple = HtmlService.createTemplateFromFile('htmlandroidsend');
    var temple = HtmlService.createTemplateFromFile('XXXSend.html'); //mention the name of the file as in Appscript
-  //   var temple = HtmlService.createTemplateFromFile('26Nov');
+   //var temple = HtmlService.createTemplateFromFile('26Nov');
    temple.candidate = candidate; 
    var message = temple.evaluate().getContent();
    var currentemail = ss1.getRange(i,4).getValue();   
    Logger.log(currentemail);
-  // var subjectLine = "Hi " + candidate.first_name + "- Please update your XXXXXXX";
-    var subjectLine = "Hi " + candidate.first_name + " - you are XXXXXX";
-    var messageBody = "Hi " + candidate.first_name;
-
+   // var subjectLine = "Hi " + candidate.first_name + "- Please update your XXXXXXX";
+   var subjectLine = "Hi " + candidate.first_name + " - you are XXXXXX";
+   var messageBody = "Hi " + candidate.first_name;
+   
+   SpreadsheetApp.flush();
+   //MailApp.sendEmail({to:currentemail,subject:subjectLine,body:messageBody,htmlBody:message}); 
+   
       
     }
     }  
