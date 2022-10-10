@@ -44,6 +44,12 @@ function sendMessages(){
    SpreadsheetApp.flush();
    //MailApp.sendEmail({to:currentemail,subject:subjectLine,body:messageBody,htmlBody:message}); 
    //GmailApp.sendEmail(currentemail, subjectLine,messageBody,{'from':aliases[4], name:"XXXX Team Message",htmlBody:message,noReply:true});
+   //GmailApp.sendEmail(currentemail, subjectLine,messageBody,{'from':aliases[2], name:"XXXXX Notification - Team XXXXX",htmlBody:message,noReply:true});
+   //MailApp.sendEmail(currentemail, subjectLine,messageBody,{noReply:true});
+   
+	GmailApp.sendEmail(currentemail, subjectLine,messageBody,{'from':aliases[1], name:"Notification - From Team XXXX",htmlBody:message});
+    ss1.getRange(i,8).setValue(done);
+   
       
     }
     }  
