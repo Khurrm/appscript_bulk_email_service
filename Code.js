@@ -1,25 +1,25 @@
 function sendMessages(){  
   
-   var draft = GmailApp.getDrafts()[0];
-   var aliases = GmailApp.getAliases()
+   let draft = GmailApp.getDrafts()[0];
+   let aliases = GmailApp.getAliases()
    Logger.log(draft);  
    Logger.log(aliases); //returns the list of aliases you have
    Logger.log(aliases[1]);
-   var done = "done";
-   var ss1 = SpreadsheetApp.openById("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX").getSheetByName("tosendXXX").activate(); //Add your own Google Sheet in openById function. 
-   var lr = ss1.getLastRow(); 
+   let done = "done";
+   let ss1 = SpreadsheetApp.openById("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX").getSheetByName("tosendXXX").activate(); //Add your own Google Sheet in openById function. 
+   let lr = ss1.getLastRow(); 
    Logger.log(lr);
    
-   var quotaLeft = MailApp.getRemainingDailyQuota(); // to check the daily quota.
+   let quotaLeft = MailApp.getRemainingDailyQuota(); // to check the daily quota.
    Logger.log(quotaLeft);
    
-   for (var i = 2; i <=lr; i++){
-   var interim = ss1.getRange(i,5).getValue(); 
+   for (let i = 2; i <=lr; i++){
+   let interim = ss1.getRange(i,5).getValue(); 
    Logger.log(interim);
    if(interim != "done")
    
    {
-   var candidate = 
+   let candidate = 
       {
         assetvalue: ss1.getRange(i,1).getValue(),
         first_name: ss1.getRange(i,2).getValue(),
@@ -29,13 +29,13 @@ function sendMessages(){
         serialnumber: ss1.getRange(i,6).getValue()
                 
       };
-   var temple = HtmlService.createTemplateFromFile('XXXSend.html'); //mention the name of the file as in Appscript
+   let temple = HtmlService.createTemplateFromFile('XXXSend.html'); //mention the name of the file as in Appscript
    temple.candidate = candidate; 
-   var message = temple.evaluate().getContent();
-   var currentemail = ss1.getRange(i,4).getValue();   
+   let message = temple.evaluate().getContent();
+   let currentemail = ss1.getRange(i,4).getValue();   
    Logger.log(currentemail);
-   var subjectLine = "Hi " + candidate.first_name + " - you are XXXXXX";
-   var messageBody = "Hi " + candidate.first_name;
+   let subjectLine = "Hi " + candidate.first_name + " - you are XXXXXX";
+   let messageBody = "Hi " + candidate.first_name;
   
    SpreadsheetApp.flush();
    GmailApp.sendEmail(currentemail, subjectLine,messageBody,{'from':aliases[1], name:"Notification - From Team XXXX",htmlBody:message});
